@@ -1,4 +1,5 @@
 from manim import *
+from elements import *
 
 config.pixel_height = 1080
 config.pixel_width = 1920
@@ -16,14 +17,11 @@ grid = NumberPlane(
 )
 
 class linux_permissions(Scene):
-    def Permissions(self):
-        intro = Text("""ls -l 
-total 136
--rw-r--r-- 1 watari watari     46 Dec 30 22:34 README.md""").scale(0.5)
-        self.add(intro)
+    def frame_1(self):
+        self.add(intro.scale(0.3))
 
     def construct(self):
         self.add(grid, Dot())
-        self.Permissions()
+        self.frame_1()
         
         
