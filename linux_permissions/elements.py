@@ -18,5 +18,6 @@ grid = NumberPlane(
 ls_output = """> ls -l 
 total 136
 -rw-r--r-- 1 watari watari     46 Dec 30 22:34 README.md"""
-permissions_bits = "-rw-r--r--"
+permissions_example = "-rw-r--r--"
 permission_sets = ["user", "group", "other"]
+bits = ["d", "r", "w", "x", "-", "s", "t"]

@@ -13,13 +13,18 @@ class linux_permissions(Scene):
             add_line_numbers=False,
         )
 
+        example = Text(
+            permissions_example, 
+        )
+
+        p_sets = [ Text(i) for i in permission_sets]
         return {
             "intro": intro,
-            "permissions_bits": permissions_bits,
-            "permission_sets": permission_sets,
+            "example": example,
+            "p_sets": p_sets,
         }
 
     def construct(self):
         self.add(grid, Dot())
         elements = self.frame_1()
-        self.add(elements["intro"].scale(0.5).to_edge(UP).to_edge(LEFT))
+        self.add(elements["intro"].scale(0.5).to_edge(UP).to_edge(LEFT), elements["example"], *elements["p_sets"])
