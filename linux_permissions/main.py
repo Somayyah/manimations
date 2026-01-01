@@ -1,6 +1,7 @@
 from manim import *
 from elements import *
 
+
 class linux_permissions(Scene):
     def frame_1(self):
         intro = Code(
@@ -14,10 +15,10 @@ class linux_permissions(Scene):
         )
 
         example = Text(
-            permissions_example, 
+            permissions_example,
         )
 
-        p_sets = [ Text(i) for i in permission_sets]
+        p_sets = [Text(i) for i in permission_sets]
         return {
             "intro": intro,
             "example": example,
@@ -27,4 +28,9 @@ class linux_permissions(Scene):
     def construct(self):
         self.add(grid, Dot())
         elements = self.frame_1()
-        self.add(elements["intro"].scale(0.5).to_edge(UP).to_edge(LEFT), elements["example"], *elements["p_sets"])
+        self.add(
+            Group(
+                elements["intro"], 
+                elements["example"], 
+                *elements["p_sets"])
+            )
