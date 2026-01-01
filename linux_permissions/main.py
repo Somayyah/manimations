@@ -1,27 +1,25 @@
 from manim import *
 from elements import *
 
-config.pixel_height = 1080
-config.pixel_width = 1920
-config.frame_height = 8.0
-config.frame_width = 14.222
-
-grid = NumberPlane(
-    x_range=[-config.frame_width / 2, config.frame_width / 2, 1],
-    y_range=[-config.frame_height / 2, config.frame_height / 2, 1],
-    background_line_style={
-        "stroke_color": BLUE_E,
-        "stroke_width": 3,
-        "stroke_opacity": 0.4
-    }
-)
-
 class linux_permissions(Scene):
     def frame_1(self):
-        self.add(intro.scale(0.3))
+        intro = Code(
+            code_string=ls_output,
+            tab_width=4,
+            formatter_style="fruity",
+            background="window",
+            language="bash",
+            paragraph_config={"font_size": 50, "font": "Noto Sans Mono"},
+            add_line_numbers=False,
+        )
+
+        return {
+            "intro": intro,
+            "permissions_bits": permissions_bits,
+            "permission_sets": permission_sets,
+        }
 
     def construct(self):
         self.add(grid, Dot())
-        self.frame_1()
-        
-        
+        elements = self.frame_1()
+        self.add(elements["intro"].scale(0.5).to_edge(UP).to_edge(LEFT))
