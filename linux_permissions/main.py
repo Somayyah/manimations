@@ -30,7 +30,8 @@ class linux_permissions(Scene):
         elements = self.frame_1()
         self.add(
             Group(
-                elements["intro"], 
-                elements["example"], 
-                *elements["p_sets"])
+                elements["intro"].scale(0.3), 
+                elements["example"].scale(0.3), 
+                *elements["p_sets"]
+                ).arrange(buff=0.3, direction=UP)
             )
