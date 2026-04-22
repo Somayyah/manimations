@@ -15,13 +15,20 @@ grid = NumberPlane(
     },
 )
 
-sx = ':[range]s/{pattern}/{replacement}/[flags] [count]'
-subs = {
-    "[range]": '%', 
-    '{pattern}': "^\*\+", 
-    "{replacement}": "\=len(submatch(0))",
-    "[flags] [count]": ""
-}
+parts = [
+    ":",
+    "[range]",
+    "s/",
+    "{pattern}",
+    "/",
+    "{replacement}",
+    "/",
+    "[flags] [count]",
+]
 
-def code_block(str):
-    return Code(code_string=str, add_line_numbers=False).scale(1.1)
+replacements = {
+    1: "%", # [range]
+    3: r"^\*\+", # {pattern}
+    5: r"\=len(submatch(0))", # {replacement}
+    7: "", # [flags] [count]
+}
