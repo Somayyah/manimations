@@ -18,7 +18,7 @@ grid = NumberPlane(
 ls_output = """> ls -l 
 total 136
 -rw-r--r-- 1 watari watari     46 Dec 30 22:34 README.md"""
-permissions_example = "-rw-r--r--"
+permissions_example = " "*8+ "\n"+ " "*9 + "\n" + "-rw-r--r--"
 permission_sets = ["user", "group", "other"]
 bits = ["d", "r", "w", "x", "-", "s", "t"]
 
@@ -35,6 +35,7 @@ def frame_1():
 
     example = Text(
         permissions_example,
+        font="Noto Sans Mono",
     )
 
     p_sets = [Text(i) for i in permission_sets]
